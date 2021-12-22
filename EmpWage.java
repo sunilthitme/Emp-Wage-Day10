@@ -2,36 +2,38 @@ package com.empwageday10;
 
 public class EmpWage {
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Computation program !! ");
-		  int is_fulltime_present = 1;
-			int is_parttime_present = 2;
-			int wage_per_hr = 20;
-			int working_hr = 0;
-			int total_working_hr = 0;
-			int days_in_month=20;
-			int max_working_hrs = 100;
-			int monthly_total_wage = 0;
-			int daily_wage_array[] = new int[20];
-			for (int i=0; i<days_in_month && total_working_hr<max_working_hrs; i++) {
-				int emp_check = (int)(Math.floor(Math.random() * 10)) % 3;
-				switch (emp_check) {
-					case 1:
-						working_hr = 8;
-						break;
-					case 2:
-						working_hr = 4;
-						break;
-					default:
-						working_hr = 0;
-				}
-				total_working_hr += working_hr;
-				daily_wage_array[i] = working_hr * wage_per_hr;
-			}
-			for (int j=0; j<days_in_month; j++) {
-				int day = j+1;
-				System.out.println("Day " + day + " wage is " + daily_wage_array[j]);
-				monthly_total_wage = monthly_total_wage + daily_wage_array[j];
-			}
-			System.out.println("\nMonthly wage is " + monthly_total_wage);
+		System.out.println("Welcome to Employee Wage Computation");
+		int workingHour=0;
+		int wagePerHour=20;
+		int totalWorkingHour=0;
+		int dayinMonth=20;
+		int maxWorkingHour=100;
+		int totalWage=0;
+		for(int day=0; day<dayinMonth && totalWorkingHour<maxWorkingHour; day++) {
+			int presentAbsent= (int)(Math.floor(Math.random() * 10)) % 3;
+			switch(presentAbsent) {
+			case 1:
+			       workingHour=8;
+			       System.out.print("Emplyee is Present Full time	");
+		            break;
+			case 2:
+			        workingHour=4;
+			        System.out.print("Emplyee is Present Part time ");
+			        break;
+			 default:
+				     workingHour=0;
+				     System.out.print("Emplyee is Absent");
+				     break;
+		
+		}
+		totalWorkingHour+=workingHour;
+		int dailyWage=workingHour*wagePerHour;
+		totalWage+=dailyWage;
+		
+		System.out.println("\t" +"Day " + day + " wage is ::"  + dailyWage);
+		}
+			
+		System.out.println("Monthly wage is::"+totalWage);
+		}
+
 	}
-}
